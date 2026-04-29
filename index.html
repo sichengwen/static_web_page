@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q2规划 · 人审队列生产</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f4f8;padding:0}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0;position:sticky;top:0;z-index:10}
+.tab{padding:12px 20px;font-size:14px;color:#64748b;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab:hover{color:#7c3aed}
+.tab.active{color:#7c3aed;border-bottom-color:#7c3aed;font-weight:600}
+.frames{width:100%;height:calc(100vh - 50px);border:none;background:#fff}
+</style>
+</head>
+<body>
+<div class="tabs">
+<div class="tab active" onclick="switchTab(0)">📊 现状分析</div>
+<div class="tab" onclick="switchTab(1)">🚀 新范式</div>
+<div class="tab" onclick="switchTab(2)">🎯 Q2范围</div>
+<div class="tab" onclick="switchTab(3)">💡 终极产品</div>
+</div>
+<iframe class="frames" id="frame0" src="01-current-status.html"></iframe>
+<iframe class="frames" id="frame1" src="02-new-paradigm.html" style="display:none"></iframe>
+<iframe class="frames" id="frame2" src="03-q2-scope.html" style="display:none"></iframe>
+<iframe class="frames" id="frame3" src="04-ultimate-product.html" style="display:none"></iframe>
+<script>
+function switchTab(i){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.frames').forEach(f=>f.style.display='none');
+  document.querySelectorAll('.tab')[i].classList.add('active');
+  document.getElementById('frame'+i).style.display='';
+}
+</script>
+</body>
+</html>
